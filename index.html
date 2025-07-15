@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impact Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Impact Quiz</h1>
+    <p class="intro">Descubra seu perfil de impacto social, cultural e ambiental respondendo às perguntas abaixo.</p>
+
+    <form id="quizForm">
+      <!-- Pergunta 1 -->
+      <fieldset>
+        <legend>1. Você prefere participar de um projeto comunitário que…</legend>
+        <label><input type="radio" name="q1" value="social" required /> Oferece aulas de reforço escolar gratuito.</label>
+        <label><input type="radio" name="q1" value="cultural" /> Promove saraus e exposições artísticas locais.</label>
+        <label><input type="radio" name="q1" value="ambiental" /> Organiza mutirões de limpeza em parques.</label>
+      </fieldset>
+
+      <!-- Pergunta 2 -->
+      <fieldset>
+        <legend>2. Quando pensa em consumo responsável, você prioriza…</legend>
+        <label><input type="radio" name="q2" value="ambiental" required /> Produtos com menor pegada de carbono.</label>
+        <label><input type="radio" name="q2" value="social" /> Marcas que investem em programas de inclusão.</label>
+        <label><input type="radio" name="q2" value="cultural" /> Empresas que valorizam a diversidade cultural.</label>
+      </fieldset>
+
+      <!-- Pergunta 3 -->
+      <fieldset>
+        <legend>3. Em um sábado livre, você preferiria…</legend>
+        <label><input type="radio" name="q3" value="cultural" required /> Visitar um museu ou exposição.</label>
+        <label><input type="radio" name="q3" value="ambiental" /> Fazer trilha em uma reserva natural.</label>
+        <label><input type="radio" name="q3" value="social" /> Voluntariar em um abrigo de pessoas em situação de rua.</label>
+      </fieldset>
+
+      <!-- Pergunta 4 -->
+      <fieldset>
+        <legend>4. Qual prática você gostaria que fosse adotada em todas as escolas?</legend>
+        <label><input type="radio" name="q4" value="social" required /> Programas de combate ao bullying e acolhimento.</label>
+        <label><input type="radio" name="q4" value="cultural" /> Aulas de história das culturas indígenas e afrodescendentes.</label>
+        <label><input type="radio" name="q4" value="ambiental" /> Hortas escolares e educação ambiental prática.</label>
+      </fieldset>
+
+      <!-- Pergunta 5 -->
+      <fieldset>
+        <legend>5. Para celebrar algo importante, você…</legend>
+        <label><input type="radio" name="q5" value="ambiental" required /> Compensa suas emissões plantando árvores.</label>
+        <label><input type="radio" name="q5" value="cultural" /> Organiza um festival com música e comidas típicas.</label>
+        <label><input type="radio" name="q5" value="social" /> Faz uma campanha de arrecadação para uma ONG.</label>
+      </fieldset>
+
+      <button type="submit" class="btn">Ver meu resultado</button>
+    </form>
+
+    <section id="result" class="hidden">
+      <h2>Seu Perfil de Impacto</h2>
+      <p id="summary"></p>
+      <button id="restart" class="btn secondary">Refazer Quiz</button>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
