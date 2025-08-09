@@ -1,9 +1,9 @@
 :root {
   --primary: #6c2bd9;
   --primary-light: #a46cff;
-  --bg: #f5f3ff;
-  --text: #2d2d2d;
-  --white: #ffffff;
+  --bg: #000000;
+  --text: #f5f5f5;
+  --white: #1a1a1a;
 }
 
 * {
@@ -27,7 +27,8 @@ body {
   max-width: 700px;
   width: 100%;
   padding: 2rem 2.5rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.1);
+  animation: fadeIn 1s ease;
 }
 
 h1 {
@@ -46,11 +47,12 @@ fieldset {
   border-radius: 10px;
   margin-bottom: 1.5rem;
   padding: 1rem 1.2rem;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 fieldset:hover {
   border-color: var(--primary-light);
+  transform: scale(1.01);
 }
 
 legend {
@@ -72,7 +74,7 @@ input[type="radio"] {
 
 .btn {
   background: var(--primary);
-  color: var(--white);
+  color: var(--text);
   border: none;
   border-radius: 8px;
   padding: 0.8rem 1.6rem;
@@ -97,14 +99,35 @@ input[type="radio"] {
 
 .secondary:hover {
   background: var(--primary);
-  color: var(--white);
+  color: var(--text);
 }
 
 .hidden {
   display: none;
 }
 
-#result {
+#result, #countdown {
   margin-top: 2rem;
   text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+#timer {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-light);
+}
+
+.question-step {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.question-step.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
