@@ -9,51 +9,64 @@
 <body>
   <main class="container">
     <h1>Impact Quiz</h1>
-    <p class="intro">Descubra seu perfil de impacto social, cultural e ambiental respondendo às perguntas abaixo.</p>
+    <p class="intro">Descubra qual é o seu perfil de impacto no mundo respondendo às perguntas abaixo.</p>
 
     <form id="quizForm">
-      <!-- Pergunta 1 -->
-      <fieldset>
-        <legend>1. Você prefere participar de um projeto comunitário que…</legend>
-        <label><input type="radio" name="q1" value="social" required /> Oferece aulas de reforço escolar gratuito.</label>
-        <label><input type="radio" name="q1" value="cultural" /> Promove saraus e exposições artísticas locais.</label>
-        <label><input type="radio" name="q1" value="ambiental" /> Organiza mutirões de limpeza em parques.</label>
-      </fieldset>
+      <div class="question-step active">
+        <fieldset>
+          <legend>1. Se tivesse um orçamento para um projeto comunitário, escolheria investir em...</legend>
+          <label><input type="radio" name="q1" value="social" required /> Programas de capacitação para pessoas em situação de vulnerabilidade.</label>
+          <label><input type="radio" name="q1" value="cultural" /> Oficinas de arte e música para jovens da comunidade.</label>
+          <label><input type="radio" name="q1" value="ambiental" /> Projetos de reflorestamento e proteção de nascentes.</label>
+        </fieldset>
+        <button type="button" class="btn next">Próxima</button>
+      </div>
 
-      <!-- Pergunta 2 -->
-      <fieldset>
-        <legend>2. Quando pensa em consumo responsável, você prioriza…</legend>
-        <label><input type="radio" name="q2" value="ambiental" required /> Produtos com menor pegada de carbono.</label>
-        <label><input type="radio" name="q2" value="social" /> Marcas que investem em programas de inclusão.</label>
-        <label><input type="radio" name="q2" value="cultural" /> Empresas que valorizam a diversidade cultural.</label>
-      </fieldset>
+      <div class="question-step">
+        <fieldset>
+          <legend>2. Diante de uma festa ou evento local, você preferiria...</legend>
+          <label><input type="radio" name="q2" value="ambiental" required /> Garantir que toda a decoração e materiais sejam reutilizáveis ou recicláveis.</label>
+          <label><input type="radio" name="q2" value="social" /> Usar o evento para arrecadar fundos para causas sociais.</label>
+          <label><input type="radio" name="q2" value="cultural" /> Convidar artistas e grupos culturais regionais para se apresentarem.</label>
+        </fieldset>
+        <button type="button" class="btn next">Próxima</button>
+      </div>
 
-      <!-- Pergunta 3 -->
-      <fieldset>
-        <legend>3. Em um sábado livre, você preferiria…</legend>
-        <label><input type="radio" name="q3" value="cultural" required /> Visitar um museu ou exposição.</label>
-        <label><input type="radio" name="q3" value="ambiental" /> Fazer trilha em uma reserva natural.</label>
-        <label><input type="radio" name="q3" value="social" /> Voluntariar em um abrigo de pessoas em situação de rua.</label>
-      </fieldset>
+      <div class="question-step">
+        <fieldset>
+          <legend>3. Na sua rotina de consumo, o que mais influencia suas escolhas?</legend>
+          <label><input type="radio" name="q3" value="cultural" required /> Apoiar marcas que valorizam a identidade cultural e produzem localmente.</label>
+          <label><input type="radio" name="q3" value="ambiental" /> Optar por produtos com certificação ambiental e baixa pegada de carbono.</label>
+          <label><input type="radio" name="q3" value="social" /> Comprar de empresas que praticam comércio justo e inclusão social.</label>
+        </fieldset>
+        <button type="button" class="btn next">Próxima</button>
+      </div>
 
-      <!-- Pergunta 4 -->
-      <fieldset>
-        <legend>4. Qual prática você gostaria que fosse adotada em todas as escolas?</legend>
-        <label><input type="radio" name="q4" value="social" required /> Programas de combate ao bullying e acolhimento.</label>
-        <label><input type="radio" name="q4" value="cultural" /> Aulas de história das culturas indígenas e afrodescendentes.</label>
-        <label><input type="radio" name="q4" value="ambiental" /> Hortas escolares e educação ambiental prática.</label>
-      </fieldset>
+      <div class="question-step">
+        <fieldset>
+          <legend>4. Se pudesse implementar uma política pública, ela priorizaria...</legend>
+          <label><input type="radio" name="q4" value="social" required /> Redução da desigualdade social e acesso universal à educação.</label>
+          <label><input type="radio" name="q4" value="cultural" /> Preservação e difusão do patrimônio histórico e cultural.</label>
+          <label><input type="radio" name="q4" value="ambiental" /> Ações de preservação ambiental e incentivo às energias renováveis.</label>
+        </fieldset>
+        <button type="button" class="btn next">Próxima</button>
+      </div>
 
-      <!-- Pergunta 5 -->
-      <fieldset>
-        <legend>5. Para celebrar algo importante, você…</legend>
-        <label><input type="radio" name="q5" value="ambiental" required /> Compensa suas emissões plantando árvores.</label>
-        <label><input type="radio" name="q5" value="cultural" /> Organiza um festival com música e comidas típicas.</label>
-        <label><input type="radio" name="q5" value="social" /> Faz uma campanha de arrecadação para uma ONG.</label>
-      </fieldset>
-
-      <button type="submit" class="btn">Ver meu resultado</button>
+      <div class="question-step">
+        <fieldset>
+          <legend>5. Ao comemorar uma conquista pessoal, você...</legend>
+          <label><input type="radio" name="q5" value="ambiental" required /> Organiza um plantio coletivo de árvores para marcar a data.</label>
+          <label><input type="radio" name="q5" value="cultural" /> Promove um evento com música, dança e gastronomia típica.</label>
+          <label><input type="radio" name="q5" value="social" /> Faz uma ação solidária em benefício de uma instituição.</label>
+        </fieldset>
+        <button type="submit" class="btn">Ver meu resultado</button>
+      </div>
     </form>
+
+    <section id="countdown" class="hidden">
+      <h2>Calculando seu perfil...</h2>
+      <p id="timer">3</p>
+    </section>
 
     <section id="result" class="hidden">
       <h2>Seu Perfil de Impacto</h2>
