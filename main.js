@@ -1,46 +1,72 @@
 const form = document.getElementById("quizForm");
+const steps = document.querySelectorAll(".question-step");
+const countdownSection = document.getElementById("countdown");
+const timerEl = document.getElementById("timer");
 const resultSection = document.getElementById("result");
 const summaryEl = document.getElementById("summary");
 const restartBtn = document.getElementById("restart");
 
-// Mapeia cada categoria para uma descrição resumida
+document.querySelectorAll(".next").forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    const radios = steps[index].querySelectorAll("input[type='radio']");
+    const checked = Array.from(radios).some(r => r.checked);
+    if (!checked) {
+      alert("Selecione uma opção para continuar.");
+      return;
+    }
+    steps[index].classList.remove("active");
+    steps[index + 1].classList.add("active");
+  });
+});
+
 const profiles = {
   social: {
     title: "Defensor(a) Social",
-    text: "Você se destaca por seu compromisso com justiça social e inclusão. Procura sempre apoiar iniciativas que melhorem a vida das pessoas à sua volta."
+    text: "Você é movido(a) por empatia e justiça social. Está sempre buscando formas de melhorar a vida das pessoas."
   },
   cultural: {
     title: "Conector(a) Cultural",
-    text: "Sua força está em valorizar a diversidade e difundir expressões artísticas. Pontes culturais são sua especialidade!"
+    text: "Você valoriza a diversidade e adora compartilhar e promover expressões culturais únicas."
   },
   ambiental: {
     title: "Guardião(ã) Ambiental",
-    text: "A sustentabilidade é prioridade para você. Lidera ações que protegem ecossistemas e inspiram hábitos conscientes."
+    text: "Sua missão é proteger o planeta. Sustentabilidade é mais do que um ideal: é um estilo de vida."
   }
 };
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  // Conta quantas respostas por categoria
   const counts = { social: 0, cultural: 0, ambiental: 0 };
+  new FormData(form).forEach((value) => counts[value]++);
 
-  new FormData(form).forEach((value) => {
-    counts[value]++;
-  });
-
-  // Determina a categoria com maior pontuação
-  const topCategory = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
-
-  const { title, text } = profiles[topCategory];
-  summaryEl.innerHTML = `<strong>${title}:</strong> ${text}`;
+  const topCategory = Object.keys(counts).reduce((a, b) =>
+    counts[a] > counts[b] ? a : b
+  );
 
   form.classList.add("hidden");
-  resultSection.classList.remove("hidden");
+  countdownSection.classList.remove("hidden");
+
+  let time = 3;
+  timerEl.textContent = time;
+  const countdown = setInterval(() => {
+    time--;
+    timerEl.textContent = time;
+    if (time <= 0) {
+      clearInterval(countdown);
+      countdownSection.classList.add("hidden");
+      const { title, text } = profiles[topCategory];
+      summaryEl.innerHTML = `<strong>${title}:</strong> ${text}`;
+      resultSection.classList.remove("hidden");
+    }
+  }, 1000);
 });
 
 restartBtn.addEventListener("click", () => {
   form.reset();
+  steps.forEach(step => step.classList.remove("active"));
+  steps[0].classList.add("active");
   form.classList.remove("hidden");
   resultSection.classList.add("hidden");
 });
+
