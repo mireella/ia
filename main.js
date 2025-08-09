@@ -6,6 +6,8 @@ const resultSection = document.getElementById("result");
 const summaryEl = document.getElementById("summary");
 const restartBtn = document.getElementById("restart");
 
+let currentStep = 0;
+
 document.querySelectorAll(".next").forEach((btn, index) => {
   btn.addEventListener("click", () => {
     const radios = steps[index].querySelectorAll("input[type='radio']");
@@ -69,4 +71,3 @@ restartBtn.addEventListener("click", () => {
   form.classList.remove("hidden");
   resultSection.classList.add("hidden");
 });
-
